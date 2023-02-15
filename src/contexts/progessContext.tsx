@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
 
-interface ProgressContextProviderProps {
+export interface ProgressContextProviderProps {
   children: ReactNode;
 }
 

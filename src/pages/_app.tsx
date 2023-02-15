@@ -9,6 +9,19 @@ import ProgessContextProvider from "@/contexts/progessContext";
 import "@/styles/globals.css";
 import { useEffect } from "react";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import dynamic from "next/dynamic";
+import { ProgressContextProviderProps } from "@/contexts/progessContext";
+
+// Fixes: Hydration failed because the initial UI does not match what was rendered on the server.
+const DynamicProgessContextProvider = dynamic<any>(
+  () =>
+    import("@/contexts/progessContext").then(
+      (mod: any) => mod?.ContextProvider
+    ),
+  {
+    ssr: false,
+  }
+);
 
 export default function App({ Component, pageProps }: AppProps) {
   const [loggedInUser, loading, _error] = useAuthState(auth);

@@ -122,7 +122,8 @@ const ConversationScreen = ({ conversation, messages }: Props) => {
   };
 
   const scrollToBottom = () => {
-    endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (typeof window !== "undefined")
+      endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {

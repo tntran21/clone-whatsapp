@@ -24,3 +24,7 @@ export const StyledLoginContainer = styled.div`
 export const StyledImageWrapper = styled.div`
   margin-bottom: 50px;
 `;
+
+// Error: https://nextjs.org/docs/messages/page-without-valid-component
+const Styled = "";
+export default Styled;
